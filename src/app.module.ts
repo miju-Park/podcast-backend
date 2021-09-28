@@ -12,6 +12,7 @@ import * as Joi from "joi";
 import { JwtModule } from "./jwt/jwt.module";
 import { JwtMiddleware } from "./jwt/jwt.middleware";
 import { AuthModule } from "./auth/auth.module";
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -59,6 +60,7 @@ import { AuthModule } from "./auth/auth.module";
     PodcastsModule,
     UsersModule,
     AuthModule,
+    UploadModule,
   ],
 })
 export class AppModule {

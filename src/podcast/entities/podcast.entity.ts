@@ -28,7 +28,7 @@ export class Podcast extends CoreEntity {
 
   @Field(() => User)
   @ManyToOne(() => User, (user) => user.podcasts, {
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
   })
   creator: User;
 
@@ -38,6 +38,14 @@ export class Podcast extends CoreEntity {
   @OneToMany(() => Episode, (episode) => episode.podcast)
   @Field((type) => [Episode])
   episodes: Episode[];
+
+  @Field((type) => String, { defaultValue: "", nullable: true })
+  @Column({ default: "", nullable: true })
+  coverImg?: string;
+
+  @Field((type) => String, { defaultValue: "", nullable: true })
+  @Column({ default: "", nullable: true })
+  description?: string;
 
   @OneToMany(() => Review, (review) => review.podcast)
   @Field((type) => [Review])
